@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xusheng.scm.dao.AccountDao">
+
+  <resultMap id="acc" type="account">
+  	<id property="accId" column="acc_id"/>
+  	<result property="accLogin" column="acc_login"/>
+  	<result property="accName" column="acc_name"/>
+  	<result property="accPass" column="acc_pass"/>
+  </resultMap>  
+  
+  <select id="selAllAcc" resultMap="acc">
+  	SELECT acc_id,acc_login,acc_name,acc_pass FROM account
+  </select>
+  
+  <insert id="addAcc" parameterType="account">
+  	INSERT INTO account (acc_login,acc_pass) VALUES (#{accLogin},#{accPass})
+  </insert>
+</mapper>
