@@ -4,11 +4,8 @@
 <configuration>
 	<!-- 别名配置 -->
 	<typeAliases>
-		<typeAlias type="com.xusheng.scm.entity.Account" alias="account"/>
+		<package name="com.xusheng.scm.entity"/>
 	</typeAliases>
 	
-	<!-- 指定映射器路径 -->
-	<!-- <mappers>
-		<mapper resource="com/xusheng/scm/sql/AccountMapper.xml"/>
-	</mappers> -->
+	
 </configuration>

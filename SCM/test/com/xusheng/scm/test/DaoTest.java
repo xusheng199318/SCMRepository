@@ -7,9 +7,10 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.xusheng.scm.controller.AccountController;
 import com.xusheng.scm.dao.AccountDao;
+import com.xusheng.scm.dao.SupplierMapper;
 import com.xusheng.scm.entity.Account;
+import com.xusheng.scm.entity.Supplier;
 
 public class DaoTest {
 	ApplicationContext ac;
@@ -39,5 +40,22 @@ public class DaoTest {
 		acc.setAccLogin("admin4");
 		acc.setAccPass("admin4");
 		System.out.println(ad.addAcc(acc));
+	}
+	
+	@Test
+	public void testSelectSupplier(){
+		SupplierMapper sm = ac.getBean("supplierMapper",SupplierMapper.class);
+		System.out.println(sm.selectAll());
+	}
+	
+	@Test
+	public void testInsertSupplier(){
+		Supplier su = new Supplier();
+		su.setSupName("小米");
+		su.setSupAddress("dgdf是否");
+		su.setSupLinkman("小王");
+		su.setSupPhone("32525");
+		SupplierMapper sm = ac.getBean("supplierMapper",SupplierMapper.class);
+		System.out.println(sm.addSupplier(su));
 	}
 }

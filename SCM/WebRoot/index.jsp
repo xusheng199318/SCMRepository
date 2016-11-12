@@ -3,9 +3,9 @@
 <head>
 </head>
 <body>
-	<form action="account/insert.do" method="post">
-		用户名:<input type="text"	name="accLogin"/><br/><br/> 	
-		密    码:<input type="text" name="accPass"/>
+	<form action="supplier/insert.do" method="post">
+		供应商名字:<input type="text"	name="supName"/><br/><br/> 	
+		联系人:<input type="text" name="supLinkman"/>
 		<input type="submit" value="ok">
 	</form>
 </body>
