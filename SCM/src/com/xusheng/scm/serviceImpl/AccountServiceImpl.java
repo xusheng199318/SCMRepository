@@ -1,6 +1,5 @@
 package com.xusheng.scm.serviceImpl;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,17 +13,30 @@ public class AccountServiceImpl implements AccountService{
 
 	@Autowired
 	private AccountDao ad;
-	
-	public List<Account> selAllAcc() {
-		List<Account> list = ad.selAllAcc();
-		return list;
-	}
-	
-	public int addAcc(Account acc) {
-		int j = ad.addAcc(acc);
-		return j;
+
+	@Override
+	public int insert(Account entity) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	
+	@Override
+	public int delete(Account entity) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(Account entity) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Account select(Account entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

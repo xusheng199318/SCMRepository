@@ -1,12 +1,7 @@
 package com.xusheng.scm.service;
 
-import java.util.List;
-
 import com.xusheng.scm.entity.Account;
 
-public interface AccountService {
+public interface AccountService extends BaseService<Account> {
 
-	public List<Account> selAllAcc();
-	
-	public int addAcc(Account acc);
 }

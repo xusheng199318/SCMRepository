@@ -11,11 +11,9 @@
   	<result property="accPass" column="acc_pass"/>
   </resultMap>  
   
-  <select id="selAllAcc" resultMap="acc">
-  	SELECT acc_id,acc_login,acc_name,acc_pass FROM account
-  </select>
   
-  <insert id="addAcc" parameterType="account">
+  
+  <insert id="insert" parameterType="account">
   	INSERT INTO account (acc_login,acc_pass) VALUES (#{accLogin},#{accPass})
   </insert>
 </mapper>

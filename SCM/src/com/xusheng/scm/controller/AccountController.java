@@ -10,21 +10,18 @@ import com.xusheng.scm.service.AccountService;
 
 @Controller
 @RequestMapping("/account")
-public class AccountController {
+public class AccountController extends BaseController{
 
 	@Resource
 	private AccountService accountService;
 	
-	@RequestMapping("/select.do")
-	public String selAcc(){
-		System.out.println("进入acccontroller");
-		System.out.println(accountService.selAllAcc());;
-		return "forward:/jsp/main.jsp";
-	}
-	
 	@RequestMapping("/insert.do")
 	public String addAcc(Account acc){
-		accountService.addAcc(acc);
+		try {
+			accountService.insert(acc);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "forward:/jsp/main.jsp";
 	}
 }
