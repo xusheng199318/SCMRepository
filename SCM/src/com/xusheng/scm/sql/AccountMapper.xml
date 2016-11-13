@@ -11,9 +11,11 @@
   	<result property="accPass" column="acc_pass"/>
   </resultMap>  
   
-  
-  
   <insert id="insert" parameterType="account">
   	INSERT INTO account (acc_login,acc_pass) VALUES (#{accLogin},#{accPass})
   </insert>
+  
+  <select id="login" parameterType="account" resultType="string">
+  	SELECT acc_pass FROM account WHERE acc_login = #{accLogin} 
+  </select>
 </mapper>

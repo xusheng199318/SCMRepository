@@ -26,5 +26,14 @@ public class DaoTest {
 		System.out.println(ac.getBean("dataSource"));
 	}
 	
+	@Test
+	public void testLogin(){
+		Account account = new Account();
+		account.setAccLogin("admin");
+		AccountDao ad = ac.getBean("accountDao",AccountDao.class);
+		String pwd = ad.login(account);
+		System.out.println(pwd);
+	}
+	
 	
 }
