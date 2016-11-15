@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.xusheng.scm.dao.AccountDao;
 import com.xusheng.scm.dao.SupplierMapper;
 import com.xusheng.scm.entity.Account;
+import com.xusheng.scm.entity.Page;
 import com.xusheng.scm.entity.Supplier;
 
 public class DaoTest {
@@ -35,5 +36,21 @@ public class DaoTest {
 		System.out.println(pwd);
 	}
 	
+	@Test
+	public void testInse(){
+		Supplier s = new Supplier();
+		s.setSupName("中兴");
+		s.setSupId(6);
+		SupplierMapper sd = ac.getBean("supplierMapper",SupplierMapper.class);
+		sd.insert(s);
+	}
 	
+	@Test
+	public void testPage(){
+		Supplier supplier = new Supplier();
+		Page<Supplier> page = new Page<Supplier>();
+		SupplierMapper sm = ac.getBean("supplierMapper",SupplierMapper.class);
+		System.out.println(sm.selectPage(page));
+		//System.out.println(sm.selectPageCount(supplier));
+	}
 }

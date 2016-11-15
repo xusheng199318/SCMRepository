@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.xusheng.scm.dao.AccountDao;
 import com.xusheng.scm.entity.Account;
+import com.xusheng.scm.entity.Page;
 import com.xusheng.scm.service.AccountService;
 import com.xusheng.scm.util.Result;
 
@@ -54,6 +55,12 @@ public class AccountServiceImpl implements AccountService{
 			result.setObj(pwd);
 		}
 		return result;
+	}
+
+	@Override
+	public Page<Account> selectPage(Page<Account> page) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
