@@ -1,5 +1,6 @@
 package com.xusheng.scm.test;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.junit.Before;
@@ -16,10 +17,12 @@ import com.xusheng.scm.entity.Supplier;
 public class DaoTest {
 	ApplicationContext ac;
 	ApplicationContext ac1;
+	SupplierMapper sm;
 	@Before
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//ac1 = new ClassPathXmlApplicationContext("spring-mvc.xml");
+		sm = ac.getBean("supplierMapper",SupplierMapper.class);
 	}
 	
 	@Test
@@ -52,5 +55,18 @@ public class DaoTest {
 		SupplierMapper sm = ac.getBean("supplierMapper",SupplierMapper.class);
 		System.out.println(sm.selectPage(page));
 		//System.out.println(sm.selectPageCount(supplier));
+	}
+	
+	@Test
+	public void testDeletePageById(){
+		String[] pks = {"9","10"};
+		System.out.println(sm.deletePageById(pks));
+	}
+	
+	@Test
+	public void testInsert(){
+		BigDecimal bd = new BigDecimal(1500);
+		Supplier supplier = new Supplier(1111,"3224","3224","3224","3224","3224",bd,"3224");
+		System.out.println(sm.insert(supplier));
 	}
 }

@@ -17,9 +17,9 @@ public class AccountServiceImpl implements AccountService{
 	private AccountDao ad;
 
 	@Override
-	public int insert(Account entity) {
+	public Result insert(Account entity) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	@Override
@@ -59,6 +59,12 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public Page<Account> selectPage(Page<Account> page) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result deletePageById(String[] pks) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

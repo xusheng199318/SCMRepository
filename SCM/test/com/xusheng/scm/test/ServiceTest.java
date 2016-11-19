@@ -1,5 +1,7 @@
 package com.xusheng.scm.test;
 
+import java.math.BigDecimal;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -10,16 +12,17 @@ import com.xusheng.scm.entity.Page;
 import com.xusheng.scm.entity.Supplier;
 import com.xusheng.scm.service.AccountService;
 import com.xusheng.scm.service.SupplierService;
-import com.xusheng.scm.serviceImpl.SupplierServiceImpl;
 import com.xusheng.scm.util.Result;
 
 public class ServiceTest {
 
 	private ApplicationContext ac;
+	private SupplierService ss;
 	
 	@Before
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ss = ac.getBean("supplierServiceImpl",SupplierService.class);
 	}
 	
 	@Test
@@ -38,5 +41,18 @@ public class ServiceTest {
 		Page<Supplier> page = new Page<Supplier>();
 		
 		System.out.println(ss.selectPage(page));
+	}
+	
+	@Test
+	public void testDelByID() throws Exception{
+		String[] str = {"9","10"};
+		System.out.println(ss.deletePageById(str));
+	}
+	
+	@Test
+	public void testInsert() throws Exception{
+		BigDecimal bd = new BigDecimal(1500);
+		Supplier supplier = new Supplier(1112,"3224","3224","3224","3224","3224",bd,"3224");
+		System.out.println(ss.insert(supplier));
 	}
 }
