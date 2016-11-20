@@ -69,4 +69,15 @@ public class DaoTest {
 		Supplier supplier = new Supplier(1111,"3224","3224","3224","3224","3224",bd,"3224");
 		System.out.println(sm.insert(supplier));
 	}
+	
+	@Test
+	public void testUpdate(){
+		BigDecimal bd = new BigDecimal(1500);
+		Supplier supplier = new Supplier(1111,"xs14324","xs4","xs24","3224","3224",bd,"3224");
+//		Supplier supplier = new Supplier();
+//		supplier.setSupAddress("423");
+//		supplier.setSupId(1111);
+//		supplier.setSupLinkman("xs3");
+		System.out.println(sm.update(supplier));
+	}
 }

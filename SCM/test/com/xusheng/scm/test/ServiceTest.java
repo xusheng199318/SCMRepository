@@ -55,4 +55,11 @@ public class ServiceTest {
 		Supplier supplier = new Supplier(1112,"3224","3224","3224","3224","3224",bd,"3224");
 		System.out.println(ss.insert(supplier));
 	}
+	
+	@Test
+	public void testUpdate() throws Exception{
+		BigDecimal bd = new BigDecimal(1500);
+		Supplier supplier = new Supplier(1112,"xs","3224","3224","3224","3224",bd,"3224");
+		System.out.println(ss.update(supplier));
+	}
 }

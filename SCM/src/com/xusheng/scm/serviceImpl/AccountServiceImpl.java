@@ -29,9 +29,9 @@ public class AccountServiceImpl implements AccountService{
 	}
 
 	@Override
-	public int update(Account entity) {
+	public Result update(Account entity) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	@Override
