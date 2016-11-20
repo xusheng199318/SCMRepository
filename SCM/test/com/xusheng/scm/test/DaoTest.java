@@ -9,8 +9,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.xusheng.scm.dao.AccountDao;
+import com.xusheng.scm.dao.GoodsMapper;
 import com.xusheng.scm.dao.SupplierMapper;
 import com.xusheng.scm.entity.Account;
+import com.xusheng.scm.entity.Goods;
 import com.xusheng.scm.entity.Page;
 import com.xusheng.scm.entity.Supplier;
 
@@ -18,11 +20,13 @@ public class DaoTest {
 	ApplicationContext ac;
 	ApplicationContext ac1;
 	SupplierMapper sm;
+	GoodsMapper gm;
 	@Before
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//ac1 = new ClassPathXmlApplicationContext("spring-mvc.xml");
 		sm = ac.getBean("supplierMapper",SupplierMapper.class);
+		gm = ac.getBean("goodsMapper",GoodsMapper.class);
 	}
 	
 	@Test
@@ -79,5 +83,25 @@ public class DaoTest {
 //		supplier.setSupId(1111);
 //		supplier.setSupLinkman("xs3");
 		System.out.println(sm.update(supplier));
+	}
+	
+	@Test
+	public void testSele1(){
+		Goods goods = new Goods();
+		goods.setGoodsName("%note%");
+		Page<Goods> page = new Page<Goods>();
+		page.setParamEntity(goods);
+		System.out.println(gm.selectPageCount(page));
+	}
+	
+	@Test
+	public void testSele2(){
+		Goods goods = new Goods();
+		goods.setGoodsName("%note%");
+		Page<Goods> page = new Page<Goods>();
+		page.setParamEntity(goods);
+		page.setPage(1);
+		page.setRows(1);
+		System.out.println(gm.selectPage(page));
 	}
 }

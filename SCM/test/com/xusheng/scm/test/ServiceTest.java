@@ -8,9 +8,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.xusheng.scm.entity.Account;
+import com.xusheng.scm.entity.Goods;
 import com.xusheng.scm.entity.Page;
 import com.xusheng.scm.entity.Supplier;
 import com.xusheng.scm.service.AccountService;
+import com.xusheng.scm.service.GoodsService;
 import com.xusheng.scm.service.SupplierService;
 import com.xusheng.scm.util.Result;
 
@@ -18,11 +20,13 @@ public class ServiceTest {
 
 	private ApplicationContext ac;
 	private SupplierService ss;
+	private GoodsService gs;
 	
 	@Before
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ss = ac.getBean("supplierServiceImpl",SupplierService.class);
+		gs = ac.getBean("goodsServiceImpl",GoodsService.class);
 	}
 	
 	@Test
@@ -61,5 +65,16 @@ public class ServiceTest {
 		BigDecimal bd = new BigDecimal(1500);
 		Supplier supplier = new Supplier(1112,"xs","3224","3224","3224","3224",bd,"3224");
 		System.out.println(ss.update(supplier));
+	}
+	
+	@Test
+	public void testSel1() throws Exception{
+		Goods goods = new Goods();
+		goods.setGoodsName("%note%");
+		Page<Goods> page = new Page<Goods>();
+		page.setParamEntity(goods);
+		page.setPage(1);
+		page.setRows(2);
+		System.out.println(gs.selectPage(page));
 	}
 }
