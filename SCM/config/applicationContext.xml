@@ -81,6 +81,7 @@
 	<tx:advice id="advice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="*" propagation="SUPPORTS"/>

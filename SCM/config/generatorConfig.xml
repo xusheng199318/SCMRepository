@@ -40,7 +40,11 @@
 		<javaClientGenerator type="XMLMAPPER" targetPackage="com.xusheng.scm.dao" targetProject="SCM/src" />
 		
 		<!-- <table tableName="account" domainObjectName="Account"/> 
-			 <table tableName="supplier" domainObjectName="Supplier"/>-->
-		<table tableName="goods" domainObjectName="Goods"/>
+			 <table tableName="supplier" domainObjectName="Supplier"/>
+			 <table tableName="goods" domainObjectName="Goods"/>
+		-->
+		<table tableName="account_records" domainObjectName="AccountRecords"/>
+		<table tableName="buy_order" domainObjectName="BuyOrder"/>
+		<table tableName="buy_order_detail" domainObjectName="BuyOrderDetail"/>
 	</context>
 </generatorConfiguration>

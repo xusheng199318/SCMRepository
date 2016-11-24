@@ -70,7 +70,7 @@ public class ServiceTest {
 	@Test
 	public void testSel1() throws Exception{
 		Goods goods = new Goods();
-		goods.setGoodsName("%note%");
+		goods.setGoodsName("%note4%");
 		Page<Goods> page = new Page<Goods>();
 		page.setParamEntity(goods);
 		page.setPage(1);
