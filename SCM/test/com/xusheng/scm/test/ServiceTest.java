@@ -14,6 +14,7 @@ import com.xusheng.scm.entity.Supplier;
 import com.xusheng.scm.service.AccountService;
 import com.xusheng.scm.service.GoodsService;
 import com.xusheng.scm.service.SupplierService;
+import com.xusheng.scm.service.SysParamService;
 import com.xusheng.scm.util.Result;
 
 public class ServiceTest {
@@ -21,12 +22,14 @@ public class ServiceTest {
 	private ApplicationContext ac;
 	private SupplierService ss;
 	private GoodsService gs;
+	private SysParamService sps;
 	
 	@Before
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ss = ac.getBean("supplierServiceImpl",SupplierService.class);
 		gs = ac.getBean("goodsServiceImpl",GoodsService.class);
+		sps = ac.getBean("sysParamService",SysParamService.class);
 	}
 	
 	@Test
@@ -76,5 +79,10 @@ public class ServiceTest {
 		page.setPage(1);
 		page.setRows(2);
 		System.out.println(gs.selectPage(page));
+	}
+	
+	@Test
+	public void testSel2() throws Exception{
+		System.out.println(sps.selectSysParam(""));
 	}
 }

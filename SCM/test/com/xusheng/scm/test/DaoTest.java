@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.xusheng.scm.dao.AccountDao;
 import com.xusheng.scm.dao.GoodsMapper;
 import com.xusheng.scm.dao.SupplierMapper;
+import com.xusheng.scm.dao.SysParamMapper;
 import com.xusheng.scm.entity.Account;
 import com.xusheng.scm.entity.Goods;
 import com.xusheng.scm.entity.Page;
@@ -21,12 +22,14 @@ public class DaoTest {
 	ApplicationContext ac1;
 	SupplierMapper sm;
 	GoodsMapper gm;
+	SysParamMapper sp;
 	@Before
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//ac1 = new ClassPathXmlApplicationContext("spring-mvc.xml");
 		sm = ac.getBean("supplierMapper",SupplierMapper.class);
 		gm = ac.getBean("goodsMapper",GoodsMapper.class);
+		sp = ac.getBean("sysParamMapper",SysParamMapper.class);
 	}
 	
 	@Test
@@ -103,5 +106,10 @@ public class DaoTest {
 		page.setPage(1);
 		page.setRows(1);
 		System.out.println(gm.selectPage(page));
+	}
+	
+	@Test
+	public void testSysParamMapper(){
+		System.out.println(sp.selectSysParam("supType"));
 	}
 }
