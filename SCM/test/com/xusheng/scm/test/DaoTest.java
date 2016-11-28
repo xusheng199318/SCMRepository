@@ -1,7 +1,9 @@
 package com.xusheng.scm.test;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -111,5 +113,13 @@ public class DaoTest {
 	@Test
 	public void testSysParamMapper(){
 		System.out.println(sp.selectSysParam("supType"));
+	}
+	
+	@Test
+	public void testTimeMapper(){
+		Map<String,String> paramMap = new HashMap<String,String>();
+		paramMap.put("start", "2016-11-01");
+		paramMap.put("end","2016-11-01");
+		System.out.println(sm.selectSupplier(paramMap));
 	}
 }

@@ -1,5 +1,7 @@
 package com.xusheng.scm.controller;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,6 +70,16 @@ public class SupplierController extends BaseController{
 		}
 		return result;
 	}
+	
+	@RequestMapping("/selectSupplier.do")
+	@ResponseBody
+	public List<Map<String,String>> selectSupplier(String start,String end){
+		Map<String,String> paramMap = new HashMap<String,String>();
+		paramMap.put("start", start);
+		paramMap.put("end", end);
+		return supplierService.selectSupplier(paramMap);
+	}
+	
 }
 
 

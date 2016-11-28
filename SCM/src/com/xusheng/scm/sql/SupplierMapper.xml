@@ -52,4 +52,13 @@
   	</set>
   	 WHERE sup_id=#{supId}
   </update>
+  
+  <select id="selectSupplier" parameterType="map" resultType="map">
+  	SELECT SUM(ar.ar_payable) total,su.sup_name FROM account_records ar 
+	INNER JOIN supplier su ON ar.sup_id = su.sup_id
+	WHERE ar.ar_bus_type='bo'
+	AND ar.ar_date BETWEEN #{start} AND #{end}
+	GROUP BY su.sup_name
+  </select>
+  
 </mapper>

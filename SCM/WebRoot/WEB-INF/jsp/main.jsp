@@ -37,6 +37,14 @@
 				</ul>
     		</div>
     		
+    		<div title="报表查询">
+				<ul style="list-style: none;padding: 0px;margin: 0px;">
+					<li style="padding: 6px;">
+						<a href="${proPath }/base/report.do" style="text-decoration: none;display: block; font-weight: bold;" title="供应商采购额统计">供应商采购额统计</a>
+					</li>
+				</ul>
+    		</div>
+    		
 		</div>
     </div>
     
